@@ -11,5 +11,15 @@ module.exports = {
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    indent: [
+      'error',
+      2
+    ]
+  },
+  quotes: [
+    'error',
+    'single'
+  ],
+  semi: 'error'
 }
