@@ -8,10 +8,23 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
+    script: [
+      {
+        src: 'https://apis.google.com/js/platform.js?onload=renderButton',
+        defer: true,
+        async: true
+      }
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
+      // For google authentication
+      { name: 'google-signin-scope', content: 'profile email' },
+      {
+        name: 'google-signin-client_id',
+        content: '625910950860-otlptp54tf0do72frvgmuf53vgq3qgle.apps.googleusercontent.com'//FIXME This should be something like process.env.GOOGLE_CLIENT_ID
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -58,7 +71,7 @@ export default {
     services: {
       auth: true // Use firebase authentication
     }
- },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -66,6 +79,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-},
+    extend(config, ctx) { }
+  },
 }

@@ -28,18 +28,19 @@ html {
   margin: 0;
 }
 
-.button--green {
+.button--blue {
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #3b8070;
-  color: #3b8070;
+  background-color: rgba(74, 139, 245, 1);
+  color: #fff;
   text-decoration: none;
   padding: 10px 30px;
 }
 
-.button--green:hover {
+.button--blue:hover {
   color: #fff;
-  background-color: #3b8070;
+  background-color: rgba(26, 53, 91, 1);
 }
 
 .button--grey {

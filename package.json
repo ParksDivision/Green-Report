@@ -21,7 +21,8 @@
     "firebase": "^8.4.1",
     "nuxt": "^2.15.3",
     "sass": "^1.32.11",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "vue-google-signin-button-directive": "^1.0.3"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",
