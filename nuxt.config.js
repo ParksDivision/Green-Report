@@ -1,84 +1,56 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
-
-  // Global page headers: https://go.nuxtjs.dev/config-head
+  mode: 'universal',
+  /*
+   ** Headers of the page
+   */
   head: {
-    title: 'Green-Report',
-    htmlAttrs: {
-      lang: 'en'
-    },
-    script: [
-      {
-        src: 'https://apis.google.com/js/platform.js?onload=renderButton',
-        defer: true,
-        async: true
-      }
-    ],
+    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      // For google authentication
-      { name: 'google-signin-scope', content: 'profile email' },
       {
-        name: 'google-signin-client_id',
-        content: '625910950860-otlptp54tf0do72frvgmuf53vgq3qgle.apps.googleusercontent.com'//FIXME This should be something like process.env.GOOGLE_CLIENT_ID
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build'
-  ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
+  /*
+   ** Customize the progress-bar color
+   */
+  loading: { color: '#fff' },
+  /*
+   ** Global CSS
+   */
+  css: [],
+  /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: ['~/plugins/firebase.js'],
+  /*
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [],
+  /*
+   ** Nuxt.js modules
+   */
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    '@nuxtjs/firebase'
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios'
   ],
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
   axios: {},
-
-  // Firebase module configuration: https://firebase.nuxtjs.org/
-  firebase: {
-    config: {
-      apiKey: '<apiKey>',
-      authDomain: '<authDomain>',
-      projectId: '<projectId>',
-      storageBucket: '<storageBucket>',
-      messagingSenderId: '<messagingSenderId>',
-      appId: '<appId>',
-      measurementId: '<measurementId>'
-    },
-    services: {
-      auth: true // Use firebase authentication
-    }
-  },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+  /*
+   ** Build configuration
+   */
   build: {
-    publicPath: '/nuxt/',
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) { }
-  },
+    extend(config, ctx) {}
+  }
 }
