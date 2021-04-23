@@ -52,7 +52,17 @@ export default {
   },
   methods: {
     pressed() {
-      console.log(user.email)
+      if (user) {
+        this.$postGreenReport(
+          this.productName,
+          this.productCompany,
+          this.reasonForFlagging,
+          this.contributedBy,
+          user.email
+        )
+      } else {
+        console.log(user)
+      }
     }
   }
 }
