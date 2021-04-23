@@ -1,7 +1,10 @@
 <template>
-  <div class="container">
+  <div class="">
     <div>
       <h1 class="title">Welcome To Green Report</h1>
+      <div class="container">
+        <h2>New test</h2>
+      </div>
     </div>
   </div>
 </template>
@@ -31,8 +34,8 @@ export default {
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
   color: #35495e;
+  text-align: center;
   letter-spacing: 1px;
 }
 
