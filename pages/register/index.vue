@@ -30,10 +30,10 @@ export default {
     pressed() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+        .createUserWithEmailAndPassword(this.email, this.password)
         .then(data => {
           console.log(data)
-          this.$router.replace({ name: 'secret' })
+          this.$router.push('/')
         })
         .catch(error => {
           this.error = error

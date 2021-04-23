@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3>Profile Route</h3>
+    <h2 v-if="user">{{user.email}}</h2>
   </div>
 </template>
 
@@ -9,22 +10,26 @@ import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { getUserFromCookie, getUserFromSession } from '@/helpers'
 export default {
+  data () {
+    return { user: null }
+  },
   asyncData({ req, redirect }) {
+    let user = null;
     if (process.server) {
       console.log('server', req.headers)
-      const user = getUserFromCookie(req)
+      user = getUserFromCookie(req)
       //   console.log('b', getUserFromCookie(req))
       if (!user) {
-        console.log('redirecting server')
         redirect('/login')
       }
     } else {
-      var user = firebase.auth().currentUser
-      if (!user) { // This seems like it should be a redundant check
+      user = firebase.auth().currentUser
+      if (!user) {
         redirect('/login')
       }
       //   console.log($nuxt.$router)
     }
+    return { user: user }
   }
 }
 </script>

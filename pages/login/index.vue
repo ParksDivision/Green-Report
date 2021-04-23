@@ -13,7 +13,10 @@
       </form>
       <div class="error" v-if="error">{{error.message}}</div>
     </div>
-    <nuxt-link to="/register">Register new account</nuxt-link>
+    <div class="register">
+      <p>Don't have an account yet?</p>
+      <nuxt-link to="/register">Register new account</nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -35,7 +38,7 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(data => {
           console.log(data)
-          this.$router.replace({ name: 'secret' })
+          this.$router.replace({ name: 'profile' })
         })
         .catch(error => {
           this.error = error

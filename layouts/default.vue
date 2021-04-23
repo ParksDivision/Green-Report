@@ -2,13 +2,14 @@
   <div class="main">
     <div class="main-links">
       <nuxt-link to="/">Dashboard</nuxt-link>|
-      <nuxt-link to="/secret">Profile</nuxt-link>|
+      <nuxt-link to="/profile">Profile</nuxt-link>|
       <div @click="logout" v-if="loggedIn" class="logout-link">Logout</div>
       <nuxt-link v-else to="/login">Login Page</nuxt-link>
     </div>
     <nuxt />
   </div>
 </template>
+
 <script>
 import Cookies from 'js-cookie'
 import * as firebase from 'firebase/app'
@@ -60,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .logout-link {
   cursor: pointer;
   text-decoration: underline;
