@@ -11,7 +11,7 @@
         </div>
         <button>Submit</button>
       </form>
-      <div class="error" v-if="error">{{error.message}}</div>
+      <div class="error" v-if="error">{{ error.message }}</div>
     </div>
     <div class="register">
       <p>Don't have an account yet?</p>
@@ -49,36 +49,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .login, .register {
-    margin-top: 50px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  div {
-    color: inherit;
-  }
+.login,
+.register {
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div {
+  color: inherit;
+}
 
-  form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  input {
-    width: 400px;
-    padding: 30px;
-    margin: 20px;
-    font-size: 21px;
-  }
-  button {
-    width: 400px;
-    height: 75px;
-    font-size: 100%;
-  }
-  .error {
-    color: red;
-  }
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+input {
+  width: 400px;
+  padding: 30px;
+  margin: 20px;
+  font-size: 21px;
+}
+button {
+  width: 400px;
+  height: 75px;
+  font-size: 100%;
+}
+.error {
+  color: red;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Profile Route</h3>
-    <h2 v-if="user">{{user.email}}</h2>
+    <h2 v-if="user">{{ user.email }}</h2>
   </div>
 </template>
 
@@ -10,11 +10,11 @@ import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { getUserFromCookie, getUserFromSession } from '@/helpers'
 export default {
-  data () {
+  data() {
     return { user: null }
   },
   asyncData({ req, redirect }) {
-    let user = null;
+    let user = null
     if (process.server) {
       console.log('server', req.headers)
       user = getUserFromCookie(req)

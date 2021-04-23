@@ -1,11 +1,13 @@
 <template>
   <div class="main">
     <div class="main-links">
+      <nuxt-link to="/add-report">Add a report</nuxt-link>|
       <nuxt-link to="/">Dashboard</nuxt-link>|
       <nuxt-link to="/profile">Profile</nuxt-link>|
       <div @click="logout" v-if="loggedIn" class="logout-link">Logout</div>
       <nuxt-link v-else to="/login">Login Page</nuxt-link>
     </div>
+    <!-- Search bar component should go here -->
     <nuxt />
   </div>
 </template>
