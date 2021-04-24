@@ -18,14 +18,24 @@ export default ({ app }, inject) => {
     productName,
     productCompany,
     reasonForFlagging,
-    contributedBy,
-    email
+    category,
+    contributedBy
   ) => {
+
+    productCompany = productCompany.split(',');
+
     console.log(productName,
       productCompany,
       reasonForFlagging,
-      contributedBy,
-      email)
+      category,
+      contributedBy)
+      /*axios
+        .post(baseUrl+'newReport', {
+          productName: productName,
+          productCompany: productCompany,
+          reasonForFlagging: reasonForFlagging,
+          category: category,
+          contributedBy: contributedBy,
+        })*/
   });
-
 }

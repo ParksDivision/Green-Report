@@ -20,7 +20,8 @@ import 'firebase/auth'
 export default {
   data() {
     return {
-      loggedIn: false
+      loggedIn: false,
+      admin: false, // TODO: Should make a request to backend to check if the user is on an approved list.
     }
   },
   mounted() {
@@ -39,6 +40,7 @@ export default {
             .then(token => Cookies.set('access_token', token))
 
           this.loggedIn = true
+          // !! Here would be a perfect place to check if the user has admin privlages
         } else {
           Cookies.remove('access_token')
 
@@ -47,6 +49,7 @@ export default {
 
           // No user is signed in.
           this.loggedIn = false
+          this.admin = false
           console.log('signed out', this.loggedIn)
         }
       })

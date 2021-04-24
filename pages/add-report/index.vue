@@ -3,14 +3,25 @@
     <h2> Enter product information </h2>
     <form id="newReportForm" @submit.prevent="pressed">
       <div class="productInfo">
+        <h4>Name of the product</h4>
         <input v-model="productName" placeholder="Product name"  type="text"/>
       </div>
       <div class="productInfo">
+        <h4>Product company or producer. If there are multiple, seperate them with commas</h4>
         <input v-model="productCompany" placeholder="Producer / company name" type="text"/>
       </div>
       <div class="flagging-reason">
+        <h4>Flagging reason: Feel free to include a link if you have a source</h4>
         <input v-model="reasonForFlagging" placeholder="Reason for reporting" type="text"/>
       </div>
+      <h4>What category is this product?</h4>
+      <select v-model="category">
+        <option>Beauty Product</option>
+        <option>Cleaning Product</option>
+        <option>Clothing</option>
+        <option>Food And Drink</option>
+        <option>Health Product</option>
+      </select>
       <button>Submit</button>
     </form>
     <div class="error" v-if="error">{{ error.message }}</div>
@@ -50,8 +61,8 @@ export default {
       productName: '',
       productCompany: '',
       reasonForFlagging: '',
+      category: '',
       error: '',
-      contributedBy: '',
     }
   },
   methods: {
@@ -61,11 +72,13 @@ export default {
           this.productName,
           this.productCompany,
           this.reasonForFlagging,
-          this.contributedBy,
+          this.category,
           user.email
         )
-      } else {
-        console.log(user)
+        this.productName = ''
+        this.productCompany = ''
+        this.reasonForFlagging = ''
+        this.category = ''
       }
     }
   }
