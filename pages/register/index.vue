@@ -1,17 +1,16 @@
 <template>
   <div class = "register">
     <h3>Register</h3>
-      <form @submit.prevent="pressed">
-        <div class="login">
-          <input type="email" placeholder="email" v-model="email" />
-        </div>
-        <div class="password">
-          <input type="password" placeholder="password" v-model="password" />
-        </div>
-        <button>Submit</button>
-      </form>
-      <div class="error" v-if="error">{{error.message}}</div>
-    </div>
+    <form @submit.prevent="pressed">
+      <div class="login">
+        <input type="email" placeholder="email" v-model="email" />
+      </div>
+      <div class="password">
+        <input type="password" placeholder="password" v-model="password" />
+      </div>
+      <button>Submit</button>
+    </form>
+    <div class="error" v-if="error">{{error.message}}</div>
   </div>
 </template>
 
@@ -33,6 +32,7 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(data => {
           console.log(data)
+          this.$store.commit('updateUser', data.email);
           this.$router.push('/')
         })
         .catch(error => {

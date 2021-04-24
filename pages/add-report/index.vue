@@ -23,11 +23,14 @@ import 'firebase/auth'
 import { getUserFromCookie, getUserFromSession } from '@/helpers'
 let user = null;
 export default {
+  async created() {
+    if (!user) this.$router.push('/');
+  },
   // Get the user object, redirect to login if user is signed out
   asyncData({ req, redirect }) {
     if (process.server) {
       console.log('server', req.headers)
-      user = getUserFromCookie(req)
+      user = getUserFromCookie(req);
       //   console.log('b', getUserFromCookie(req))
       if (!user) {
         redirect('/login')
@@ -35,7 +38,7 @@ export default {
     } else {
       user = firebase.auth().currentUser
       if (!user) {
-        redirect('/login')
+        redirect('/login');
       }
       //   console.log($nuxt.$router)
     }
@@ -43,6 +46,7 @@ export default {
   },
   data() {
     return {
+      user: user,
       productName: '',
       productCompany: '',
       reasonForFlagging: '',

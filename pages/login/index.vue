@@ -37,7 +37,8 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(data => {
-          console.log(data)
+          console.log(data.email)
+          this.$store.commit('userInfoStore/updateUser', data);
           this.$router.replace({ name: 'profile' })
         })
         .catch(error => {
