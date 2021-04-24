@@ -31,8 +31,6 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(data => {
-          console.log(data)
-          this.$store.commit('updateUser', data.email);
           this.$router.push('/')
         })
         .catch(error => {
