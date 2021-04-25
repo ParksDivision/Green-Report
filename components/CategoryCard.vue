@@ -1,10 +1,12 @@
 <template>
   <ul>
     <li v-bind:key="category.categoryName"  v-for="category in categories">
-      <div class="category-card">
-        <img v-bind:src=category.categoryImage />
-        {{category.categoryName}}
-      </div>
+      <NuxtLink :to="{path:'category', params:category.categoryName}">
+        <div class="category-card">
+          <img v-bind:src=category.categoryImage />
+          {{category.categoryName}}
+        </div>
+      </NuxtLink>
     </li>
   </ul>
 </template>

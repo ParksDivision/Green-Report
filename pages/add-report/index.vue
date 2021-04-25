@@ -4,18 +4,18 @@
     <form id="newReportForm" @submit.prevent="pressed">
       <div class="productInfo">
         <h4>Name of the product</h4>
-        <input v-model="productName" placeholder="Product name"  type="text"/>
+        <input v-model="productName" placeholder="Product name"  type="text" required/>
       </div>
       <div class="productInfo">
         <h4>Product company or producer. If there are multiple, seperate them with commas</h4>
-        <input v-model="productCompany" placeholder="Producer / company name" type="text"/>
+        <input v-model="productCompany" placeholder="Producer / company name" type="text" required/>
       </div>
       <div class="flagging-reason">
         <h4>Flagging reason: Feel free to include a link if you have a source</h4>
-        <input v-model="reasonForFlagging" placeholder="Reason for reporting" type="text"/>
+        <input v-model="reasonForFlagging" placeholder="Reason for reporting" type="text" required/>
       </div>
       <h4>What category is this product?</h4>
-      <select v-model="category">
+      <select v-model="category" required>
         <option>Beauty Product</option>
         <option>Cleaning Product</option>
         <option>Clothing</option>
