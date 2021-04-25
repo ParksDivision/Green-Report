@@ -5,7 +5,7 @@ module.exports = {
     node: true
   },
   extends: [
-    '@nuxtjs/eslint-config-typescript',
+    '@nuxtjs/eslint-config',
     'plugin:nuxt/recommended'
   ],
   plugins: [
@@ -15,11 +15,11 @@ module.exports = {
     indent: [
       'error',
       2
-    ]
-  },
-  quotes: [
-    'error',
-    'single'
-  ],
-  semi: 'error'
+    ],
+    quotes: [
+      'error',
+      'single'
+    ],
+    semi: 'error'
+  }
 }

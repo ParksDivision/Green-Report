@@ -3,29 +3,28 @@
     <div>
       <h1 class="title">Welcome To Green Report</h1>
       <div class="container">
-        <h2>New test</h2>
+        <CategoryCard />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    Logo
+    // Logo TODO: remove unused code
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .container {
-  margin: 0 auto;
+  margin: 2em auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
 }
 
@@ -37,14 +36,6 @@ export default {
   color: #35495e;
   text-align: center;
   letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
 }
 
 .links {

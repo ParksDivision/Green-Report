@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import * as firebase from 'firebase/app'
-import 'firebase/auth'
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 export default {
   data() {
     return {
@@ -37,10 +37,10 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(data => {
-          this.$router.replace({ name: 'profile' })
+          this.$router.push('/');
         })
         .catch(error => {
-          this.error = error
+          this.error = error;
         })
     }
   }

@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import * as firebase from 'firebase/app'
-import 'firebase/auth'
-import { getUserFromCookie, getUserFromSession } from '@/helpers'
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import { getUserFromCookie, getUserFromSession } from '@/helpers';
 export default {
   data() {
     return { user: null }
@@ -16,16 +16,15 @@ export default {
   asyncData({ req, redirect }) {
     let user = null
     if (process.server) {
-      console.log('server', req.headers)
-      user = getUserFromCookie(req)
-      //   console.log('b', getUserFromCookie(req))
+      console.log('server', req.headers) //TODO: Remove console.log
+      user = getUserFromCookie(req);
       if (!user) {
-        redirect('/login')
+        redirect('/login');
       }
     } else {
-      user = firebase.auth().currentUser
+      user = firebase.auth().currentUser;
       if (!user) {
-        redirect('/login')
+        redirect('/login');
       }
       //   console.log($nuxt.$router)
     }
