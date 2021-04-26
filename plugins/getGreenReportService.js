@@ -38,4 +38,11 @@ export default ({ app }, inject) => {
           contributedBy: contributedBy,
         })*/
   });
+
+  inject('checkModPermissions',
+  (emailAddress) => {
+    return axios.post(baseUrl + 'authorise', {
+      emailAddress: emailAddress
+    });
+  });
 }

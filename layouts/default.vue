@@ -21,11 +21,11 @@ export default {
   data() {
     return {
       loggedIn: false,
-      admin: false, // TODO: Should make a request to backend to check if the user is on an approved list.
+      admin: false,
     }
   },
-  mounted() {
-    this.setupFirebase()
+  created() {
+    this.setupFirebase();
   },
   asyncData() {},
   methods: {
@@ -33,7 +33,9 @@ export default {
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
           // User is signed in.
-          console.log('signed in:', user)
+          this.$checkModPermissions(user.email)
+            .then(response => console.log(user.email, 'isSuper' ,response.data));
+          console.log('signed in:', user);
           firebase
             .auth()
             .currentUser.getIdToken(true)
