@@ -45,4 +45,10 @@ export default ({ app }, inject) => {
       emailAddress: emailAddress
     });
   });
+
+  inject('getNewReports',
+  () => {
+    return axios.get(baseUrl + 'newReport');
+  }
+  );
 }

@@ -10,7 +10,10 @@ import 'firebase/auth';
 import { getUserFromCookie, getUserFromSession } from '@/helpers';
 export default {
   data() {
-    return { user: null }
+    return {
+      user: null,
+      reports: []
+     }
   },
   asyncData({ req, redirect }) {
     let user = null
@@ -25,13 +28,23 @@ export default {
       if (!user) {
         redirect('/login');
       }
-      //   console.log($nuxt.$router)
     }
-    this.$checkModPermissions(user.email)
+    return { user: user }
+  },
+  created() {
+    // Redirect the user away if they have insuffiecent privlages
+    if (this.user) {
+      this.$checkModPermissions(this.user.email)
       .then(response => {
         if(!response.data ) redirect('/login')
       });
-    return { user: user }
+      // If the user has correct privlages, fetch the newReports data
+    this.$getNewReports()
+      .then(response => {
+        this.report = response.data
+        console.log('Reports:', this.report)
+        });
+    }
   }
 }
 </script>

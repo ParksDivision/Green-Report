@@ -99,7 +99,13 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
+a, .logout-link {
+  text-decoration: none;
+  color: #3b8070;
+  &:hover {
+    color: #255046;
+  }
+}
 *,
 *:before,
 *:after {
