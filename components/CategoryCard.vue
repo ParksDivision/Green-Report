@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-bind:key="category.categoryName"  v-for="category in categories">
-      <NuxtLink :to="{path:'category', params:category.categoryName}">
+      <NuxtLink :to="{name:'category', params:category}">
         <div class="category-card">
           <img v-bind:src=category.categoryImage />
           {{category.categoryName}}
@@ -13,7 +13,8 @@
 
 <script>
 export default {
-data() {
+  props: ['categoryName'],
+  data() {
     return {categories: null}
   },
   beforeCreate() {
