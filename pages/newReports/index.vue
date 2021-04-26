@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>New Reports</h3>
-    <ul>
+    <!-- <ul>
       <li v-for="report in reports" v-bind:key="report.id">
         <ul class = product-details>
           <li>Name: {{report.productName}}</li>
@@ -12,7 +12,10 @@
           <li>Created At: {{report.createdAt}}</li>
         </ul>
       </li>
-    </ul>
+    </ul> -->
+    <div v-for="report in reports" v-bind:key="report.id">
+      <NewReportCard :productInfo = report></NewReportCard>
+    </div>
   </div>
 </template>
 
@@ -54,10 +57,7 @@ export default {
       });
       // If the user has correct privlages, fetch the newReports data
     this.$getNewReports()
-      .then(response => {
-        this.reports = response.data
-        console.log('Reports:', this.reports)
-        });
+      .then(response => this.reports = response.data);
     }
   }
 }

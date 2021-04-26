@@ -12,7 +12,7 @@
       </div>
       <div class="flagging-reason">
         <h4>Flagging reason: Feel free to include a link if you have a source</h4>
-        <input v-model="reasonForFlagging" placeholder="Reason for reporting" type="text" required/>
+        <textarea v-model="reasonForFlagging" placeholder="Reason for reporting" type="text" required/>
       </div>
       <h4>What category is this product?</h4>
       <select v-model="productCategory" required>
