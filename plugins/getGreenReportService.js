@@ -1,5 +1,6 @@
 'use strict';
 import axios from 'axios';
+import DOMPurify from 'dompurify';
 const baseUrl = 'http://localhost:3001/' //FIXME this should probably be in a .env file
 
 export default ({ app }, inject) => {
@@ -18,25 +19,28 @@ export default ({ app }, inject) => {
     productName,
     productCompany,
     reasonForFlagging,
-    category,
+    productCategory,
     contributedBy
   ) => {
-
+    // Clean the form's input fields with DomPurify
+    for(var i = 0, j = arguments.length; i < j; i++){
+      arguments[i] = DOMPurify.sanitize(arguments[i]);
+    }
     productCompany = productCompany.split(',');
 
-    console.log(productName,
-      productCompany,
-      reasonForFlagging,
-      category,
-      contributedBy)
-      /*axios
-        .post(baseUrl+'newReport', {
-          productName: productName,
-          productCompany: productCompany,
-          reasonForFlagging: reasonForFlagging,
-          category: category,
-          contributedBy: contributedBy,
-        })*/
+    // console.log(productName,
+    //   productCompany,
+    //   reasonForFlagging,
+    //   category,
+    //   contributedBy)
+    axios
+      .post(baseUrl+'newReport', {
+        productName: productName,
+        productCompany: productCompany,
+        productCategory: productCategory,
+        reasonForFlagging: reasonForFlagging,
+        contributedBy: contributedBy,
+      });
   });
 
   inject('checkModPermissions',

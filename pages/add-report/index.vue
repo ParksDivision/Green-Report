@@ -15,7 +15,7 @@
         <input v-model="reasonForFlagging" placeholder="Reason for reporting" type="text" required/>
       </div>
       <h4>What category is this product?</h4>
-      <select v-model="category" required>
+      <select v-model="productCategory" required>
         <option>Beauty Product</option>
         <option>Cleaning Product</option>
         <option>Clothing</option>
@@ -61,7 +61,7 @@ export default {
       productName: '',
       productCompany: '',
       reasonForFlagging: '',
-      category: '',
+      productCategory: '',
       error: '',
     }
   },
@@ -72,7 +72,7 @@ export default {
           this.productName,
           this.productCompany,
           this.reasonForFlagging,
-          this.category,
+          this.productCategory,
           user.email
         )
         this.productName = ''

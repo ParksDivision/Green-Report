@@ -72,8 +72,6 @@ export default {
 <style lang="scss">
 .logout-link {
   cursor: pointer;
-  text-decoration: underline;
-  color: #551a8b;
 }
 .main {
   margin: 20px;
@@ -100,6 +98,7 @@ html {
   box-sizing: border-box;
 }
 a, .logout-link {
+  display: inline-block;
   text-decoration: none;
   color: #3b8070;
   &:hover {
