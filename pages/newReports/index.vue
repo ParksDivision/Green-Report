@@ -1,6 +1,18 @@
 <template>
   <div>
     <h3>New Reports</h3>
+    <ul>
+      <li v-for="report in reports" v-bind:key="report.id">
+        <ul class = product-details>
+          <li>Name: {{report.productName}}</li>
+          <li>Product Company: {{report.productCompany.toString()}}</li>
+          <li>Reason for flagging: {{report.reasonForFlagging}}</li>
+          <li>Contributed By: {{report.contributedBy}}</li>
+          <li>Report ID: {{report.id}}</li>
+          <li>Created At: {{report.createdAt}}</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -29,7 +41,9 @@ export default {
         redirect('/login');
       }
     }
-    return { user: user }
+    return {
+      user: user
+     }
   },
   created() {
     // Redirect the user away if they have insuffiecent privlages
@@ -41,8 +55,8 @@ export default {
       // If the user has correct privlages, fetch the newReports data
     this.$getNewReports()
       .then(response => {
-        this.report = response.data
-        console.log('Reports:', this.report)
+        this.reports = response.data
+        console.log('Reports:', this.reports)
         });
     }
   }
