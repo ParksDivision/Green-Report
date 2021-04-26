@@ -1,11 +1,12 @@
 <template>
   <div class="main">
     <div class="main-links">
-      <nuxt-link to="/add-report">Add a report</nuxt-link>|
+      <nuxt-link v-if="loggedIn" to="/add-report">Add a report |</nuxt-link>
       <nuxt-link to="/">Dashboard</nuxt-link>|
-      <nuxt-link to="/profile">Profile</nuxt-link>|
-      <div @click="logout" v-if="loggedIn" class="logout-link">Logout</div>
+      <nuxt-link v-if="loggedIn" to="/profile">Profile |</nuxt-link>
       <nuxt-link v-else to="/login">Login Page</nuxt-link>
+      <div @click="logout" v-if="loggedIn" class="logout-link">Logout</div>
+      <nuxt-link v-if="admin" to="/newReports">| See New Reports</nuxt-link>
     </div>
     <!-- Search bar component should go here -->
     <nuxt />
@@ -34,7 +35,7 @@ export default {
         if (user) {
           // User is signed in.
           this.$checkModPermissions(user.email)
-            .then(response => console.log(user.email, 'isSuper' ,response.data));
+            .then(response => this.admin = response.data);
           console.log('signed in:', user);
           firebase
             .auth()
