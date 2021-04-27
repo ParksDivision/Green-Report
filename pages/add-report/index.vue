@@ -41,7 +41,6 @@ export default {
   // Get the user object, redirect to login if user is signed out
   asyncData({ req, redirect }) {
     if (process.server) {
-      console.log('server', req.headers)
       user = getUserFromCookie(req);
       //   console.log('b', getUserFromCookie(req))
       if (!user) {

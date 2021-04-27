@@ -17,6 +17,15 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  generate: {
+    routes: [
+      '/category/Clothing',
+      '/category/BeautyProducts',
+      '/category/CleaningProducts',
+      '/category/FoodAndDrink',
+      '/category/HealthProducts'
+    ]
+  },
   /*
    ** Customize the progress-bar color
    */

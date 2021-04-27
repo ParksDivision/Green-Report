@@ -1,5 +1,7 @@
 <template>
-  <h2>{{category.categoryName}}</h2>
+  <div>
+    <nuxt-child/>
+  </div>
 </template>
 
 <script>

@@ -16,7 +16,6 @@ export default {
   asyncData({ req, redirect }) {
     let user = null
     if (process.server) {
-      console.log('server', req.headers) //TODO: Remove console.log
       user = getUserFromCookie(req);
       if (!user) {
         redirect('/login');
