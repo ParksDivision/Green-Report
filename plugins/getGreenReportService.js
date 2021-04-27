@@ -28,11 +28,6 @@ export default ({ app }, inject) => {
     }
     productCompany = productCompany.split(',');
 
-    // console.log(productName,
-    //   productCompany,
-    //   reasonForFlagging,
-    //   category,
-    //   contributedBy)
     axios
       .post(baseUrl+'newReport', {
         productName: productName,
@@ -55,4 +50,14 @@ export default ({ app }, inject) => {
     return axios.get(baseUrl + 'newReport');
   }
   );
+
+  // Used to delete unverified reports, called in NewReportCard component,
+  // which is a child of pages/newReports.
+  inject('deleteReport',
+  (id, emailAddress) => {
+    return axios.post(baseUrl + 'deleteReport', {
+      id: id,
+      emailAddress: emailAddress
+    });
+  });
 }

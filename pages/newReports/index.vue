@@ -1,20 +1,8 @@
 <template>
   <div>
     <h3>New Reports</h3>
-    <!-- <ul>
-      <li v-for="report in reports" v-bind:key="report.id">
-        <ul class = product-details>
-          <li>Name: {{report.productName}}</li>
-          <li>Product Company: {{report.productCompany.toString()}}</li>
-          <li>Reason for flagging: {{report.reasonForFlagging}}</li>
-          <li>Contributed By: {{report.contributedBy}}</li>
-          <li>Report ID: {{report.id}}</li>
-          <li>Created At: {{report.createdAt}}</li>
-        </ul>
-      </li>
-    </ul> -->
     <div v-for="report in reports" v-bind:key="report.id">
-      <NewReportCard :productInfo = report></NewReportCard>
+      <NewReportCard :productInfo = report :userEmail = user.email></NewReportCard>
     </div>
   </div>
 </template>

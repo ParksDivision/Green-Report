@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form id="newReportForm" @submit.prevent>
+    <form id="newReportForm" @submit.prevent :class="isDeleted ? 'hidden' : 'report-form' ">
       <div class="productInfo">
         <h4>Name of the product</h4>
         <input v-model="productName" defaultValue="myName"  type="text" required/>
@@ -54,10 +54,14 @@ export default {
         type: Array,
         required: true,
       }
+    },
+    userEmail: {
+      type: String,
     }
   },
   data: function() {
       return {
+        isDeleted: false,
         productName: this.productInfo.productName,
         productCompany: this.productInfo.productCompany,
         reasonForFlagging: this.productInfo.reasonForFlagging,
@@ -72,9 +76,16 @@ export default {
     },
     remove() {
       console.log('Remove!', this.productInfo)
+      this.$deleteReport(this.productInfo.id, this.userEmail);
+      this.isDeleted = true;
     }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.hidden {
+  display: none;
+}
+
+</style>
