@@ -3,8 +3,8 @@
     <h2> Enter product information </h2>
     <form id="newReportForm" @submit.prevent="pressed">
       <div class="productInfo">
-        <h4>Name of the product</h4>
-        <input v-model="productName" placeholder="Product name"  type="text" required/>
+        <h4>Name of the product (Leave blank if report is for a company)</h4>
+        <input v-model="productName" defaultValue="myName"  type="text"/>
       </div>
       <div class="productInfo">
         <h4>Product company or producer. If there are multiple, seperate them with commas</h4>
@@ -16,6 +16,7 @@
       </div>
       <h4>What category is this product?</h4>
       <select v-model="productCategory" required>
+        <!-- TODO: fetch this info from the server -->
         <option>Beauty Product</option>
         <option>Cleaning Product</option>
         <option>Clothing</option>
