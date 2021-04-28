@@ -32,6 +32,7 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(data => {
           this.$router.push('/')
+          .catch(failure => {console.Error(failure)});
         })
         .catch(error => {
           this.error = error

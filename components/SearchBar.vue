@@ -1,7 +1,7 @@
 <template>
-  <div class="search-bar">
+  <div>
     <form>
-      <input v-model="keyword" type="text" @keyup="debounceLookup(keyword)" placeholder="Search a product or company">
+      <input v-model="keyword" type="text" @keyup="debounceLookup(keyword)" class="search-bar" placeholder="Search a product or company">
     </form>
     <div :class=" (results.length) ? 'results-area' : 'hidden'">
       <div v-for="result of results" v-bind:key=result.id>
@@ -36,13 +36,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .search-bar {
+    width: 40vw;
+  }
   .results-area {
-    background-color: lime;
+    background-color: lightgray;
+    float: right;
     position: relative;
-    left: 8em;
+    padding: 0em 1em;
+    left: 4em;
     border: 1px black solid;
   }
   .hidden {
     display: none;
   }
+  input {
+  padding: 15px;
+  font-size: 18px;
+}
 </style>

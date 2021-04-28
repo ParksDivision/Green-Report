@@ -84,5 +84,8 @@ export default {
   }
 }
 </script>
-
+input {
+  padding: 15px;
+  font-size: 18px;
+}
 <style lang="scss" scoped></style>

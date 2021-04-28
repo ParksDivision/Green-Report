@@ -37,7 +37,8 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(data => {
-          this.$router.push('/');
+          this.$router.push('/')
+          .catch(failure => {console.log(failure)});
         })
         .catch(error => {
           this.error = error;

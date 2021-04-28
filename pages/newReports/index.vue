@@ -40,13 +40,16 @@ export default {
     if (this.user) {
       this.$checkModPermissions(this.user.email)
       .then(response => {
-        if(!response.data ) redirect('/login')
+        //console.log('Debug!', response.data)
+        if(response.data === 'false') this.$router.push('/')
+        .catch(failure => {console.Error(failure)});
       });
       // If the user has correct privlages, fetch the newReports data
     this.$getNewReports()
       .then(response => this.reports = response.data);
     }
-  }
+  },
+  methods: {}
 }
 </script>
 

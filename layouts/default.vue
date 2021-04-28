@@ -3,8 +3,8 @@
     <div class="main-links">
       <nuxt-link to="/add-report">Add a report </nuxt-link> |
       <nuxt-link to="/">Dashboard</nuxt-link>|
-      <nuxt-link v-if="!loggedIn" to="/login">Login Page</nuxt-link>
       <div @click="logout" v-if="loggedIn" class="logout-link">Logout</div>
+      <nuxt-link v-else to="/login">Login Page</nuxt-link>
       <nuxt-link v-if="admin" to="/newReports">| See New Reports</nuxt-link>
     </div>
     <SearchBar/>
@@ -34,25 +34,25 @@ export default {
         if (user) {
           // User is signed in.
           this.$checkModPermissions(user.email)
-            .then(response => this.admin = response.data);
+            .then(response => {
+              this.admin = (response.data === 'true');
+              console.log('Debug!', this.admin, typeof this.admin);
+              });
           console.log('signed in:', user);
           firebase
             .auth()
             .currentUser.getIdToken(true)
             .then(token => Cookies.set('access_token', token))
 
-          this.loggedIn = true
-          // !! Here would be a perfect place to check if the user has admin privlages
+          this.loggedIn = true;
         } else {
-          Cookies.remove('access_token')
-
-          // if (Cookies.set('access_token', 'blah')) {
-          // }
+          Cookies.remove('access_token');
 
           // No user is signed in.
           this.loggedIn = false
           this.admin = false
-          console.log('signed out', this.loggedIn)
+          console.log('signed out', this.loggedIn);
+          this.$router.push('/login')?.catch(failure => {console.Error(failure)});
         }
       })
     },
@@ -61,7 +61,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.replace({ name: 'login' })
+          this.$router.push('/login')
         })
     }
   }
