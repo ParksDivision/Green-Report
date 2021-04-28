@@ -69,6 +69,9 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.wallpaperbetter.com%2Fwallpaper%2F770%2F16%2F57%2Fpattern-green-geometry-2K-wallpaper.jpg&f=1&nofb=1);
+}
 .logout-link {
   cursor: pointer;
 }

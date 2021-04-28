@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form-container">
     <h3>New Reports</h3>
     <div v-for="report in reports" v-bind:key="report.id">
       <NewReportCard :productInfo = report :userEmail = user.email></NewReportCard>
@@ -53,4 +53,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .form-container {
+    margin-top: 2em;
+  }
+</style>

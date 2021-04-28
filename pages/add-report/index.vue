@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form-container">
     <h2> Enter product information </h2>
     <form id="newReportForm" @submit.prevent="pressed">
       <div class="productInfo">
@@ -84,8 +84,15 @@ export default {
   }
 }
 </script>
-input {
-  padding: 15px;
-  font-size: 18px;
-}
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.form-container {
+    margin-top: 2em;
+  }
+  input, textarea {
+    padding: .5empx .5em;
+    width: 35vw;
+  }
+  .error {
+    color: red;
+  }
+</style>
