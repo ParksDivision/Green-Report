@@ -73,4 +73,11 @@ export default ({ app }, inject) => {
       emailAddress: emailAddress
     });
   });
+
+  inject('searchReports',
+  (key) => {
+    return axios.post(baseUrl + 'search', {
+      key: key
+    });
+  });
 }

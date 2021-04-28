@@ -4,8 +4,9 @@
       <input v-model="keyword" type="text" @keyup="debounceLookup(keyword)" placeholder="Search a product or company">
     </form>
     <div :class=" (results.length) ? 'results-area' : 'hidden'">
-      <div v-for="result of results" v-bind:key=result>
-        {{result}}
+      <div v-for="result of results" v-bind:key=result.id>
+        <p v-if="result.productName">{{result.productName}}</p>
+        <p v-else>{{result.productCompany.toString()}}</p>
       </div>
     </div>
   </div>
@@ -18,13 +19,18 @@ export default {
   data() {
     return {
       keyword: '',
-      results: ['asdf']
+      results: []
     }
   },
   methods: {
     debounceLookup: debounce(function (key) {
-    console.log(key);
-  }, 300)
+      if(key.length === 0) {
+        this.results = [];
+        return;
+      }
+      this.$searchReports(key)
+      .then(response => this.results = response.data)
+    }, 300)
   }
 }
 </script>
