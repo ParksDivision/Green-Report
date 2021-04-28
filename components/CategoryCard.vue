@@ -42,6 +42,7 @@ export default {
     width: 20vh;
     height: 20vh;
     object-fit: cover;
+    box-shadow: 3px 3px 2px lightgray;
   }
   .category-card {
     width: 20vh;

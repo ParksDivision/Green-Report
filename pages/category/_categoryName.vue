@@ -19,9 +19,12 @@ export default {
       reports: null
       }
   },
-  beforeCreate() {
+  created() {
     this.$getAllInCategory(this.$route.params.categoryName)
-    .then(res => { this.reports = res.data });
+    .then(res => {
+      this.reports = res.data
+      console.log(res)
+    });
   }
 }
 </script>
