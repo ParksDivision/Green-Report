@@ -3,6 +3,8 @@ import axios from 'axios';
 import DOMPurify from 'dompurify';
 const baseUrl = 'http://localhost:3001/' //FIXME this should probably be in a .env file
 
+
+
 export default ({ app }, inject) => {
   // Get the list of categories products can be filed under
   inject('getCategories',

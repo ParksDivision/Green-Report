@@ -19,7 +19,7 @@ import 'firebase/auth'
 
 export default {
   data() {
-    return {
+    return { 
       loggedIn: false,
       admin: false,
     }

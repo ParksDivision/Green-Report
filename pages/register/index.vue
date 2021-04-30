@@ -17,8 +17,10 @@
 <script lang="ts">
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
-export default {
-  data() {
+import Vue from 'vue'
+
+export default Vue.extend({
+  data(): { email: string; password: string; error: string } {
     return {
       email: '',
       password: '',
@@ -26,7 +28,7 @@ export default {
     }
   },
   methods: {
-    pressed() {
+    pressed(): void {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
@@ -39,7 +41,7 @@ export default {
         })
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
