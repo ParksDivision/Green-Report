@@ -1,5 +1,5 @@
 <template>
-  <div class = "register">
+  <div class ="register">
     <h3>Register</h3>
     <form @submit.prevent="pressed">
       <div class="login">
@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
 export default {
@@ -32,7 +32,7 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(data => {
           this.$router.push('/')
-          .catch(failure => {console.Error(failure)});
+          .catch(failure => {console.error(failure)});
         })
         .catch(error => {
           this.error = error
