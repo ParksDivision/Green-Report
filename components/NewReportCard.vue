@@ -35,6 +35,7 @@
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { getUserFromCookie, getUserFromSession } from '@/helpers'
+
 export default {
   props: {
     productInfo: {

@@ -5,15 +5,17 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { getUserFromCookie, getUserFromSession } from '@/helpers';
-export default {
-  data() {
+import Vue from 'vue'
+
+export default Vue.extend({
+  data(): { user: firebase.User | null } { 
     return { user: null }
   },
-  asyncData({ req, redirect }) {
+  asyncData({ req, redirect }): { user: firebase.User | null } {
     let user = null
     if (process.server) {
       user = getUserFromCookie(req);
@@ -29,7 +31,7 @@ export default {
     }
     return { user: user }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped></style>

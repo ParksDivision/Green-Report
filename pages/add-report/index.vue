@@ -33,7 +33,9 @@
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { getUserFromCookie, getUserFromSession } from '@/helpers'
+
 let user = null;
+
 export default {
   async created() {
     if (!user) this.$router.push('/');

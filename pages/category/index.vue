@@ -3,15 +3,17 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     category: {
-        //type: String,
+        type: String,
         default: 'Prop not found'
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

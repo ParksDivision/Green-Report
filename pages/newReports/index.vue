@@ -11,14 +11,15 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { getUserFromCookie, getUserFromSession } from '@/helpers';
+
 export default {
   data() {
     return {
       user: null,
-      reports: []
+      reports: [],
      }
   },
-  asyncData({ req, redirect }) {
+  asyncData({ req, redirect })  {
     let user = null
     if (process.server) {
       user = getUserFromCookie(req);
@@ -42,7 +43,7 @@ export default {
       .then(response => {
         //console.log('Debug!', response.data)
         if(response.data === 'false') this.$router.push('/')
-        .catch(failure => {console.Error(failure)});
+        .catch(failure => {console.error(failure)});
       });
       // If the user has correct privlages, fetch the newReports data
     this.$getNewReports()

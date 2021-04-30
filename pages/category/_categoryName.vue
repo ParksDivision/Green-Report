@@ -22,7 +22,7 @@ export default {
   },
   created() {
     this.$getAllInCategory(this.$route.params.categoryName)
-    .then(res => {
+    .then((res) => {
       this.reports = res.data
       console.log(res)
     });
