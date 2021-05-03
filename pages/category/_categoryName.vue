@@ -12,9 +12,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 const moment = require('moment');
-export default {
+
+export default Vue.extend({
   data() {
     return {
       reports: null
@@ -28,11 +30,11 @@ export default {
     });
   },
   methods: {
-    convertDate(date) {
+    convertDate(date: any) {
       return moment(date)
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

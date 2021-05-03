@@ -11,20 +11,21 @@
   </ul>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 
-export default {
+export default Vue.extend({
   props: ['categoryName'],
   data() {
     return {
       categories: null
       }
   },
-  beforeCreate() {
+  beforeCreate(): void {
     this.$getCategories()
-    .then(categories => {this.categories = categories.data});
+    .then(categories => {this.$data.categories = categories.data});
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

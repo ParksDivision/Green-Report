@@ -14,7 +14,8 @@
 
 <script>
 // The only use of Lodash, since Nuxt2 has broken debounce property
-var { debounce } = require('lodash');
+const { debounce } = require('lodash');
+
 export default {
   data() {
     return {
@@ -23,13 +24,16 @@ export default {
     }
   },
   methods: {
-    debounceLookup: debounce(function (key) {
+    debounceLookup:
+      debounce(function (key) {
       if(key.length === 0) {
         this.results = [];
         return;
       }
       this.$searchReports(key)
-      .then(response => this.results = response.data)
+      .then(response => {
+        return this.results = response.data;
+      })
     }, 300)
   }
 }
