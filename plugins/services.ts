@@ -8,7 +8,7 @@ declare module 'vue/types/vue' {
     $getAllInCategory(categoryName: string): Promise<any>, 
     $getCategories(): Promise<any>,
     $postGreenReport(
-      productName: string, 
+      productName: string,
       productCompany: string,
       reasonForFlagging: string,
       productCategory: string,

@@ -15,6 +15,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  name: 'CategoryCard',
   props: ['categoryName'],
   data() {
     return {
@@ -22,6 +23,7 @@ export default Vue.extend({
       }
   },
   beforeCreate(): void {
+    // console.log(this);
     this.$getCategories()
     .then(categories => {this.$data.categories = categories.data});
   }
