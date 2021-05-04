@@ -29,14 +29,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { getUserFromCookie, getUserFromSession } from '@/helpers'
 
-let user = null;
+let user: any = null;
 
-export default {
+export default Vue.extend({
   async created() {
     if (!user) this.$router.push('/');
   },
@@ -80,11 +81,11 @@ export default {
         this.productName = ''
         this.productCompany = ''
         this.reasonForFlagging = ''
-        this.category = ''
+        this.productCategory = ''
       }
     }
   }
-}
+})
 </script>
 <style lang="scss" scoped>
 .form-container {

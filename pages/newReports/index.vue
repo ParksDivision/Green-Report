@@ -7,19 +7,20 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { getUserFromCookie, getUserFromSession } from '@/helpers';
 
-export default {
-  data() {
+export default Vue.extend({
+  data(): { user: firebase.User | null, reports: Array<any>} {
     return {
       user: null,
       reports: [],
      }
   },
-  asyncData({ req, redirect })  {
+  asyncData({ req, redirect }): { user: firebase.User | null }  {
     let user = null
     if (process.server) {
       user = getUserFromCookie(req);
@@ -34,7 +35,7 @@ export default {
     }
     return {
       user: user
-     }
+    };
   },
   created() {
     // Redirect the user away if they have insuffiecent privlages
@@ -51,7 +52,7 @@ export default {
     }
   },
   methods: {}
-}
+})
 </script>
 
 <style lang="scss" scoped>

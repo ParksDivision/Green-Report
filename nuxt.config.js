@@ -39,7 +39,7 @@ export default {
    */
   plugins: [
     '~/plugins/firebase.js',
-    '~/plugins/getGreenReportService.js',
+    '~/plugins/services.ts',
   ],
   /*
    ** Nuxt.js dev-modules
