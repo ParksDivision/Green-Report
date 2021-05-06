@@ -1,12 +1,12 @@
 import CategoryCard from "../CategoryCard.vue";
-import { mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount, Wrapper } from '@vue/test-utils'
 
 
 let wrapper: Wrapper<any>;
 
+// Mounts the Vue component with mock data
 beforeEach(() => {
-  // mounts the Vue component with mock data
-  wrapper = mount(CategoryCard, {
+  wrapper = shallowMount(CategoryCard, {
     stubs: {
       NuxtLink: true,
     },
@@ -19,13 +19,13 @@ beforeEach(() => {
 });
 
 
+// Destroys each wrapper instance after tests run
 afterEach(() => { 
   wrapper.destroy();
 });
 
 
 describe.only('CategoryCard', () => {
-  
   it('is a Vue instance', () => {
     expect(wrapper.isVueInstance).toBeTruthy();
   });

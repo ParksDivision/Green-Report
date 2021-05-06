@@ -1,6 +1,5 @@
 import Login from '../login/index.vue'
-import { mount, shallowMount, Wrapper } from '@vue/test-utils'
-import * as firebase from 'firebase/app';
+import { shallowMount, Wrapper } from '@vue/test-utils'
 import 'firebase/auth';
 
 
