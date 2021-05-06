@@ -17,7 +17,7 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'CategoryCard',
   props: ['categoryName'],
-  data() {
+  data(): { categories: null | []; } {
     return {
       categories: null
       }

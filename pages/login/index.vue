@@ -4,12 +4,12 @@
       <h3>Login</h3>
       <form @submit.prevent="pressed">
         <div class="login">
-          <input type="email" placeholder="login" v-model="email" />
+          <input type="email" placeholder="login" v-model="email" data-email/>
         </div>
         <div class="password">
-          <input type="password" placeholder="password" v-model="password" />
+          <input type="password" placeholder="password" v-model="password" data-password/>
         </div>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
       <div class="error" v-if="error">{{ error.message }}</div>
     </div>
@@ -26,6 +26,7 @@ import 'firebase/auth';
 import Vue from 'vue'
 
 export default Vue.extend({
+  name: 'Login',
   data(): { email: string; password: string; error: string; } {
     return {
       email: '',
@@ -34,7 +35,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    pressed(): void {
+    pressed() {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
